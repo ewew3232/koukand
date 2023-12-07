@@ -1,0 +1,160 @@
+
+/*画面全体*/
+.screen {
+  width: 960px;  
+  height: 640px;
+  overflow: hidden;
+  font-family:"x12y16pxMaruMonica";/*フォント*/
+  font-size: 20px;
+  color:#030009;
+  font-weight: bold;
+  letter-spacing: 4px;
+  /*background-image: url(Background.png);背景画像*/
+  
+}
+
+/*日付を表示するボックス*/
+.data-now{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  background-image: none;
+}
+
+/*スライドメニュー*/
+/*ラベル*/
+.btn-menu {
+  background: transparent;
+  color: #fff;
+  padding: 10px 10px;
+  cursor: pointer;
+  line-height: 1;
+  position: absolute;
+  left:0px;
+  top: 0px;
+  background: #000;
+  transition: .5s;
+  transform: translateX(0); 
+  writing-mode: vertical-rl;
+  border-radius: 0 5px 5px 0;
+}
+
+nav {
+  position: absolute;
+  z-index: 1;
+  left: -400px;
+  transition: .5s;
+  top: 0px;/*スライドメニューの位置*/
+}
+
+#menu-toggle:checked ~ nav,
+#menu-toggle:checked ~ .btn-menu {
+  transform: translateX(400px);
+}
+
+input#menu-toggle {
+  display: none;
+}
+
+
+/* タブメニュー */
+input[type="radio"] {
+  display: none;
+}
+
+.tab {
+  width: 400px;
+  margin: auto;
+  display: flex;
+  flex-flow: wrap;
+  position: absolute;
+  background-color: white;
+}
+
+/*名前ラベル*/
+.tab-item {
+  display: block;
+  flex-grow: 1;
+  text-align: center;
+  padding:  0;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-size:18px;
+  line-height: 50px;
+  order: -1;/* タブメニューは一番上に表示する */
+  
+  /* 下線以外をつける */
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  border-bottom: none;
+}
+
+/* アクティブなタブの背景色と文字色を変える */
+.tab-input:checked + .tab-item {
+  background: #000;
+  color: white;
+}
+    
+/* コンテンツは原則非表示 */
+.tab-content {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  border: 1px solid #000;
+}
+
+/* ラジオボタンがチェックされているコンテンツだけは表示 */
+.tab-input:checked + .tab-item + .tab-content {
+  display: flex;
+}
+
+
+/*好感度メニュー*/
+.like {
+  display: flex;
+  flex-direction: column;
+  height: 512px;
+}
+
+.like-box {
+  display: flex;
+  height:128px;
+  margin-top: 32px;
+  margin-bottom:32px;
+}
+
+
+.like-num {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  display: block;
+  text-align: center;
+  line-height: 64px;
+}
+
+.chara-icon img{
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+
+/*好感度メーター　Variabels_Set.ksで色を変化*/
+meter {
+  width: 250px;
+  height: 32px;
+  position:relative;
+  top: 16px;
+}
+
+/*Chrome, Safari, 新しいOpera */
+meter::-webkit-meter-optimum-value {
+  background: var(--meter-color,);
+}
+/*Firefox*/
+meter::-moz-meter-bar {
+  background: var(--meter-color,);
+}
+
