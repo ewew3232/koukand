@@ -10,49 +10,351 @@
   font-weight: bold;
   letter-spacing: 4px;
   /*background-image: url(Background.png);背景画像*/
-  
+  z-index:-3;
+}
+
+/*ヘルプボックス*/
+.help{
+  width: 250px;
+  height: 36px;
+  position: fixed;
+  top: 22px;
+  left: -50px;
+  background-color: white;
+  background-image: none;
+  display: flex; 
+  flex-wrap: wrap;
+  z-index: -2;
+  border: solid 4px black;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.help-icon{
+  position: relative;
+  left: 54px;
+  top: 2px;;
+}
+.help-icon img{
+  height: 32px;
+  width: 32px;
+}
+
+.help-data{
+  position: relative;
+  left:60px;
+  top:-1px
 }
 
 /*日付を表示するボックス*/
-.data-now{
-  width: 200px;
-  height: 200px;
+.data-season{
+  width: 360px;
+  height: 64px;
+  position: fixed;
+  top: 10px;
+  left: 240px;
   background-color: white;
   background-image: none;
+  display: flex; 
+  flex-wrap: wrap;
+  z-index: -2;
+  border: solid 4px;
+  border-radius: 8px;
+  align-items: center;
+}
+.data-icon img{
+  width: 48px;
+  height: 48px;
+  margin-left:10px;
+  margin-right:10px;
 }
 
-/*スライドメニュー*/
+.data_season_month_num img{
+  width: 64px;
+  height: 64px;
+  position: relative;
+  top:4px;
+}
+.data_season_month{
+  font-size: 36px;
+}
+
+.data_season_week_num img{
+  width: 64px;
+  height: 64px;
+  position: relative;
+  top:4px;
+}
+
+.data_season_week{
+  font-size: 36px;
+}
+
+/*体力気力*/
+.tension{
+  width: 300px;
+  height: 64px;
+  position: fixed;
+  top: 10px;
+  left: 620px;
+  background-color: white;
+  background-image: none;
+  z-index: -2;
+  border: solid 4px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 20px;
+}
+.hp{
+  display:flex;
+  align-items: center;
+  line-height: 32px;
+}
+.stress{
+  display:flex;
+  align-items: center;
+  line-height: 32px;
+}
+
+.hp img{
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.stress img{
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/*メーターの色　Variables.ksで変更*/
+.tension meter{
+  width:160px;
+  height: 24px;
+  top:2px;
+  margin-left: 4px;
+}
+/*Chrome, Safari, 新しいOpera */
+.tension meter::-webkit-meter-optimum-value {
+  background: var(--meter-color,);
+}
+/*Firefox*/
+.tension meter::-moz-meter-bar {
+  background: var(--meter-color,);
+}
+
+/*キャラ*/
+.chara {
+  width: 380px;
+  height: 640px;
+  position:absolute;
+  left:300px;
+  top: 120px;
+  z-index: -2;
+
+}
+
+.chara img{
+  width: 496px;
+  height: 724px;
+  position: relative;
+  top: -70px;
+  left: -50px;
+  animation: breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.01);
+  }
+}
+
+/*キャラ吹き出し*/
+.speech {
+  width: 280px;
+  height: 150px;
+  position:absolute;
+  right:620px;
+  top: 220px;
+  z-index: -2;
+}
+
+.speech img{
+  width: 280px;
+  height: 150px;
+  right:620px;
+  top: 180px;
+}
+
+.speech-box{
+  width: 200px;
+  height: 150px;
+  position:absolute;
+  right:660px;
+  top: 240px;
+  z-index: -2;
+  font-size:16px;
+  color:rgb(26, 23, 23);
+}
+
+/*ステータス*/
+.status {
+  width: 200px;
+  height: 320px;
+  position:absolute;
+  right:50px;
+  top: 130px;
+  z-index: -2;
+  background-color: white;
+}
+
+.status img{
+}
+
+
+/*コマンドを並べる机*/
+.desk{
+  width: 960px;
+  height:80px;
+  position: absolute;
+  bottom: 0px;
+  z-index: -2;
+  
+}
+
+.desk img{
+  max-width: 960px;
+  max-height: 160px;
+  background: white;
+}
+
+/*予定*/
+.schedule{
+  width: 200px;
+  height: 200px;
+  position:absolute;
+  left:50px;
+  top: 450px;
+  z-index: -2;
+}
+
+.schedule img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#schedule_text{
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 560px;
+  left: 102px;
+  z-index: -1;
+}
+
+/*話す*/
+.talk{
+  width: 200px;
+  height: 200px;
+  position:absolute;
+  left:410px;
+  top: 450px;
+  z-index: -2;
+}
+
+.talk img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#talk_text{
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 560px;
+  left: 464px;
+  z-index: -1;
+}
+
+/*休む*/
+.save{
+  width: 200px;
+  height: 200px;
+  position:absolute;
+  left:720px;
+  top: 450px;
+  z-index: -2;
+}
+
+.save img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#save_text{
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 560px;
+  left: 774px;
+  z-index: -1;
+}
+
+/*スライドメニューの後ろを誤タップ防止*/
+.barrier{
+  height: 640px;
+  width:960px;
+  position: absolute;
+  left: -960px;
+  opacity: 0.8;
+  background-color: black;
+  z-index: -1;
+}
+
+/*好感度スライドメニュー*/
 /*ラベル*/
-.btn-menu {
+.like-btn-menu {
   background: transparent;
   color: #fff;
   padding: 10px 10px;
   cursor: pointer;
   line-height: 1;
-  position: absolute;
-  left:0px;
-  top: 0px;
+  position: fixed;
+  right:0px;
+  top: 100px;
   background: #000;
   transition: .5s;
   transform: translateX(0); 
   writing-mode: vertical-rl;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px 0 0 5px;
 }
 
-nav {
+#like-slied_box {
   position: absolute;
-  z-index: 1;
-  left: -400px;
+  right: 0px;
   transition: .5s;
-  top: 0px;/*スライドメニューの位置*/
+  top: 80px;/*スライドメニューの位置 (ラベル-20px)*/
 }
 
-#menu-toggle:checked ~ nav,
-#menu-toggle:checked ~ .btn-menu {
-  transform: translateX(400px);
+#like-menu-toggle:checked ~ #like-slied_box,
+#like-menu-toggle:checked ~ .like-btn-menu {
+  transform: translateX(-400px);
 }
 
-input#menu-toggle {
+#like-menu-toggle:checked ~ .barrier {
+  transform: translateX(960px);
+}
+
+#like-menu-toggle:checked ~ .button_menu {
+  z-index: 0;
+}
+
+input#like-menu-toggle {
   display: none;
 }
 
@@ -62,17 +364,20 @@ input[type="radio"] {
   display: none;
 }
 
-.tab {
+.like-tab {
   width: 400px;
   margin: auto;
   display: flex;
   flex-flow: wrap;
   position: absolute;
+  top: 20px;
   background-color: white;
+  z-index: 100000001;
+  
 }
 
 /*名前ラベル*/
-.tab-item {
+.like-tab-item {
   display: block;
   flex-grow: 1;
   text-align: center;
@@ -92,13 +397,13 @@ input[type="radio"] {
 }
 
 /* アクティブなタブの背景色と文字色を変える */
-.tab-input:checked + .tab-item {
+.like-tab-input:checked + .like-tab-item {
   background: #000;
   color: white;
 }
     
 /* コンテンツは原則非表示 */
-.tab-content {
+.like-tab-content {
   width: 100%;
   display: none;
   flex-direction: column;
@@ -106,7 +411,7 @@ input[type="radio"] {
 }
 
 /* ラジオボタンがチェックされているコンテンツだけは表示 */
-.tab-input:checked + .tab-item + .tab-content {
+.like-tab-input:checked + .like-tab-item + .like-tab-content {
   display: flex;
 }
 
@@ -115,7 +420,7 @@ input[type="radio"] {
 .like {
   display: flex;
   flex-direction: column;
-  height: 512px;
+  height: 480px;
 }
 
 .like-box {
@@ -128,33 +433,137 @@ input[type="radio"] {
 
 .like-num {
   display: flex;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   display: block;
   text-align: center;
-  line-height: 64px;
+  line-height: 48px;
 }
 
 .chara-icon img{
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   display: block;
 }
 
 /*好感度メーター　Variabels_Set.ksで色を変化*/
-meter {
+.like meter {
   width: 250px;
   height: 32px;
   position:relative;
-  top: 16px;
+  top: 6px;
+  left: 12px;
 }
 
 /*Chrome, Safari, 新しいOpera */
-meter::-webkit-meter-optimum-value {
+.like meter::-webkit-meter-optimum-value {
   background: var(--meter-color,);
 }
 /*Firefox*/
-meter::-moz-meter-bar {
+.like meter::-moz-meter-bar {
   background: var(--meter-color,);
 }
 
+
+/*ステータススライドメニュー 画面右に出したほうがいい？
+.status-btn-menu {
+  background: transparent;
+  color: #fff;
+  padding: 10px 10px;
+  cursor: pointer;
+  line-height: 1;
+  position: fixed;
+  left:0px;
+  top: 120px;
+  background: #000;
+  transition: .5s;
+  transform: translateX(0); 
+  writing-mode: vertical-rl;
+  border-radius: 0 5px 5px 0;
+}
+
+#status-slied_box {
+  position: fixed;
+  z-index: 1;
+  left: -400px;
+  transition: .5s;
+  width: 400px;
+  height:400px;
+  background-color: aqua;
+  opacity: 0.7;
+  top: 0px;
+}
+
+#status-menu-toggle:checked ~ #status-slied_box,
+#status-menu-toggle:checked ~ .status-btn-menu {
+  transform: translateX(400px);
+}
+
+#status-menu-toggle:checked ~ .barrier {
+  transform: translateX(960px);
+}
+
+input#status-menu-toggle {
+  display: none;
+}
+*/
+
+/*スケジュール選択画面*/
+.schedule-select{
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 920px;
+  height: 520px;
+  top: 100px;
+  left: 20px;
+  opacity: 0.9;
+  display: none;
+}
+
+input#schedule-select-toggle {
+  display: none;
+}
+
+/*暫定で、味噌汁の上に重ねる*/
+.schedule-select-btn-command{
+  opacity: 0.8;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left:60px;
+  top: 450px;
+  z-index:-2;
+
+}
+
+/*スケジュールメニューの後ろを誤タップ防止*/
+.schedule-barrier{
+  height: 640px;
+  width:960px;
+  position: absolute;
+  left: -960px;
+  opacity: 0.8;
+  background-color: black;
+  z-index: 1;
+}
+
+#schedule-select-toggle:checked ~ .schedule-barrier {
+  transform: translateX(960px);
+}
+#schedule-select-toggle:checked ~ .schedule-select{
+  display: block;
+}
+
+/*closeボタン*/
+.schedule-select-btn-close {
+  background-image: url('../../fgimage/icon/close1.png');
+  background-size: cover;  /* 画像を要素にフィットさせる */
+  width: 64px;  /* 画像の幅 */
+  height: 64px;  /* 画像の高さ */
+  position: absolute;
+  z-index:4;
+  top: -64px;
+  left: 856px;
+  background-color:#fff;
+}

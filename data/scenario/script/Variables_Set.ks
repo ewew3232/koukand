@@ -17,7 +17,7 @@ for (var i = 0; i < Characters.length; i++) {
   }
 }
 
-;好感度メーター
+;好感度メーターの数値
 for (var i = 0; i < Characters.length; i++) {
   for (var j = 0; j < Characters.length; j++) {
     if (i !== j) { // 同じキャラクター同士の組み合わせを除外
@@ -31,7 +31,7 @@ for (var i = 0; i < Characters.length; i++) {
 ;好感度メーターの色 0-25:赤,26-50:黄,51-75:緑,75-100:青
 for (var i = 0; i < Characters.length; i++) {
   for (var j = 0; j < Characters.length; j++) {
-    if (i !== j) { // 同じキャラクター同士の組み合わせを除外します
+    if (i !== j) { // 同じキャラクター同士の組み合わせを除外
       var Variable_Name = Characters[i] + '_to_' + Characters[j] + '_like';
       var Meter_ID = Characters[i] + '_to_' + Characters[j] + '_meter';
       var n = f[Variable_Name];
@@ -47,6 +47,36 @@ for (var i = 0; i < Characters.length; i++) {
     }
   }
 }
+
+;各テンション
+var Tension = ['hp', 'stress'];
+
+;各テンションの数値
+for (var i = 0; i < Tension.length; i++) {
+  var Variable_Name = 'saya' + '_' + Tension[i];
+  var Meter_ID = Tension[i] + '_meter';
+  document.getElementById(Meter_ID).value = f[Variable_Name];
+}
+
+;テンションメーターの色 0-25:赤,26-50:黄,51-75:緑,75-100:青
+for (var i = 0; i < Tension.length; i++) {
+  var Variable_Name = 'saya' + '_' + Tension[i];
+  var Meter_ID = Tension[i] + '_meter';
+  var n = f[Variable_Name];
+  console.log(n);
+  console.log(Meter_ID);
+  if (n >= 0 && n <= 25) {
+    document.getElementById(Meter_ID).style.setProperty('--meter-color', 'red');
+  } else if (n >= 26 && n <= 50) {
+    document.getElementById(Meter_ID).style.setProperty('--meter-color', 'yellow');
+  } else if (n >= 51 && n <= 75) {
+    document.getElementById(Meter_ID).style.setProperty('--meter-color', 'green');
+  } else if (n >= 76 && n <= 100) {
+    document.getElementById(Meter_ID).style.setProperty('--meter-color', 'blue');
+  }
+}
+
+
 
 [endscript]
 [endmacro]
